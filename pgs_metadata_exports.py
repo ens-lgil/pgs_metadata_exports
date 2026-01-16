@@ -60,19 +60,19 @@ def get_all_pgs_data(url_root):
     > Return type: dictionary
     """
     data = {}
-    for type in ['score', 'trait', 'publication', 'performance', 'cohort']:
-        print(f'\t- Fetch all {type}s')
-        if type == 'cohort':
-            tmp_data = rest_api_call(url_root, f'{type}/all', 'fetch_all=1')
+    for entity in ['score', 'trait', 'publication', 'performance', 'cohort']:
+        print(f'\t- Fetch all {entity}s')
+        if entity == 'cohort':
+            tmp_data = rest_api_call(url_root, f'{entity}/all', 'fetch_all=1')
         else:
-            tmp_data = rest_api_call(url_root, f'{type}/all')
+            tmp_data = rest_api_call(url_root, f'{entity}/all')
         # Wait a bit to avoid reaching the maximum of allowed queries/min (might be increased)
         time.sleep(5)
         if tmp_data:
-            print(f'\t\t> {type}s: {len(tmp_data)} entries')
-            data[type] = tmp_data
+            print(f'\t\t> {entity}s: {len(tmp_data)} entries')
+            data[entity] = tmp_data
         else:
-            print(f'\t/!\\ Error: cannot retrieve "{type}" data')
+            print(f'\t/!\\ Error: cannot retrieve "{entity}" data')
     return data
 
 
