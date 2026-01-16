@@ -70,7 +70,7 @@ def get_all_pgs_data(url_root):
             print(f'\t\t> {type}s: {len(tmp_data)} entries')
             data[type] = tmp_data
         else:
-            print(f'\t/!\ Error: cannot retrieve "{type}" data')
+            print(f'\t/!\\ Error: cannot retrieve "{type}" data')
     return data
 
 
@@ -87,7 +87,7 @@ def get_latest_release(url_root) -> dict:
         release = release_data
         print(f'\t\t> Release: {release["date"]}')
     else:
-        print('\t/!\ Error: cannot retrieve current release')
+        print('\t/!\\ Error: cannot retrieve current release')
     return release
 
 
@@ -107,7 +107,7 @@ def get_previous_release(url_root):
             release = release_data[1]
         print(f'\t\t> Previous release: {release["date"]}')
     else:
-        print('\t/!\ Error: cannot retrieve previous release')
+        print('\t/!\\ Error: cannot retrieve previous release')
     return release
 
 
@@ -124,7 +124,7 @@ def get_ancestry_categories(url_root):
         for anc in ancestry_data:
             data[anc] = ancestry_data[anc]['display_category']
     else:
-        print('\t/!\ Error: cannot retrieve the list of ancestry categories')
+        print('\t/!\\ Error: cannot retrieve the list of ancestry categories')
     return data
 
 
@@ -190,9 +190,9 @@ def check_new_data_entry_in_metadata(dirpath_new,data,release_data):
 
     if len(missing_score_dir) != 0 or len(missing_perf_dir) != 0:
         if len(missing_score_dir) != 0:
-            print('/!\ Missing PGS directories for the new entry(ies):\n - '+'\n - '.join(list(missing_score_dir)))
+            print('/!\\ Missing PGS directories for the new entry(ies):\n - '+'\n - '.join(list(missing_score_dir)))
         if len(missing_perf_dir) != 0:
-            print('/!\ Missing PGS directories for the new associated Performance Metric entry(ies):\n - '+'\n - '.join(list(missing_perf_dir)))
+            print('/!\\ Missing PGS directories for the new associated Performance Metric entry(ies):\n - '+'\n - '.join(list(missing_perf_dir)))
         exit(1)
     else:
         print("OK - No missing PGS directory for the new  entry(ies)")
