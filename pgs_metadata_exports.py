@@ -41,8 +41,8 @@ def rest_api_call(url,endpoint,parameters=None):
                 response_json = response.json()
                 results = results + response_json['results']
             if count_items != len(results):
-                print(f'The number of items are differents from expected: {len(results)} found instead of {count_items}')
-        # Respone without pagination
+                print(f'The number of items is different than expected: {len(results)} found instead of {count_items}')
+        # Response without pagination
         else:
             results = response_json
     except requests.exceptions.RequestException as e:  # This is the correct syntax
